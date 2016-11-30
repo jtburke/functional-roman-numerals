@@ -1,7 +1,5 @@
-package com.github.jtburke.romannumerals;
+package com.github.jtburke.romannumerals.functional;
 
-import com.github.jtburke.romannumerals.functional.BiNumeral;
-import com.github.jtburke.romannumerals.functional.FunctionalRomanNumeralRule;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;

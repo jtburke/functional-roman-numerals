@@ -4,11 +4,9 @@ import com.github.jtburke.romannumerals.functional.FunctionalRomanNumeralGenerat
 
 import java.util.Scanner;
 
-import static com.github.jtburke.romannumerals.functional.FunctionalRomanNumeralGeneratorFactory.COUNT_ALL;
-
 class App {
     private static final String HORIZONTAL_RULE = "===============================================================";
-    private static final RomanNumeralGenerator romanNumeralGenerator = FunctionalRomanNumeralGeneratorFactory.create(COUNT_ALL);
+    private static final RomanNumeralGenerator romanNumeralGenerator = FunctionalRomanNumeralGeneratorFactory.create();
 
     public static void main(String[] args) throws Exception {
         displayWelcomeMessage();

@@ -14,9 +14,14 @@ public class FunctionalRomanNumeralGeneratorTest {
     private static final BiNumeral COUNT_NINE = new BiNumeral("IX", 9);
     private static final BiNumeral COUNT_TEN = new BiNumeral("X", 10);
     private static final BiNumeral COUNT_FORTY = new BiNumeral("XL", 40);
+    private static final BiNumeral COUNT_FIFTY = new BiNumeral("L", 50);
+    private static final BiNumeral COUNT_NINETY = new BiNumeral("XC", 90);
+    private static final BiNumeral COUNT_ONE_HUNDRED = new BiNumeral("C", 100);
+    private static final BiNumeral COUNT_FOUR_HUNDRED = new BiNumeral("CD", 400);
 
     private static final BiNumeral[] COUNT_ALL = new BiNumeral[] {
-        COUNT_FORTY, COUNT_TEN, COUNT_NINE, COUNT_FIVE, COUNT_FOUR, COUNT_ONE
+        COUNT_FOUR_HUNDRED, COUNT_ONE_HUNDRED, COUNT_NINETY, COUNT_FIFTY, COUNT_FORTY,
+        COUNT_TEN, COUNT_NINE, COUNT_FIVE, COUNT_FOUR, COUNT_ONE
     };
 
     private String generate(int number, BiNumeral... rules) {
@@ -116,5 +121,40 @@ public class FunctionalRomanNumeralGeneratorTest {
     @Test
     public void XL_from_40() {
         test(40, "XL", COUNT_FORTY, COUNT_TEN, COUNT_NINE, COUNT_FIVE, COUNT_FOUR, COUNT_ONE);
+    }
+
+    @Test
+    public void XLIX_from_49() {
+        test(49, "XLIX", COUNT_FORTY, COUNT_TEN, COUNT_NINE, COUNT_FIVE, COUNT_FOUR, COUNT_ONE);
+    }
+
+    @Test
+    public void L_from_50() {
+        test(50, "L", COUNT_FIFTY, COUNT_FORTY, COUNT_TEN, COUNT_NINE, COUNT_FIVE, COUNT_FOUR, COUNT_ONE);
+    }
+
+    @Test
+    public void LXXXIX_from_89() {
+        test(89, "LXXXIX", COUNT_FIFTY, COUNT_FORTY, COUNT_TEN, COUNT_NINE, COUNT_FIVE, COUNT_FOUR, COUNT_ONE);
+    }
+
+    @Test
+    public void XC_from_90() {
+        test(90, "XC", COUNT_NINETY, COUNT_FIFTY, COUNT_FORTY, COUNT_TEN, COUNT_NINE, COUNT_FIVE, COUNT_FOUR, COUNT_ONE);
+    }
+
+    @Test
+    public void C_from_100() {
+        test(100, "C", COUNT_ONE_HUNDRED, COUNT_NINETY, COUNT_FIFTY, COUNT_FORTY, COUNT_TEN, COUNT_NINE, COUNT_FIVE, COUNT_FOUR, COUNT_ONE);
+    }
+
+    @Test
+    public void CC_from_200() {
+        test(200, "CC", COUNT_ONE_HUNDRED, COUNT_NINETY, COUNT_FIFTY, COUNT_FORTY, COUNT_TEN, COUNT_NINE, COUNT_FIVE, COUNT_FOUR, COUNT_ONE);
+    }
+
+    @Test
+    public void CD_from_400() {
+        test(400, "CD", COUNT_FOUR_HUNDRED, COUNT_ONE_HUNDRED, COUNT_NINETY, COUNT_FIFTY, COUNT_FORTY, COUNT_TEN, COUNT_NINE, COUNT_FIVE, COUNT_FOUR, COUNT_ONE);
     }
 }

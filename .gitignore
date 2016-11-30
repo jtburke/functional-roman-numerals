@@ -1,4 +1,3 @@
-
 ### Linux template
 *~
 
@@ -137,3 +136,7 @@ fabric.properties
 adapter-app/build/
 adapter-sainsburys/build/
 domain/build/
+src/main/resources/
+src/test/resources/
+
+!roman-numerals-1.0-SNAPSHOT-prebuilt.jar

@@ -1,9 +1,13 @@
 package com.github.jtburke.romannumerals;
 
-import static com.github.jtburke.romannumerals.RomanNumerals.I;
-
 public class RomanNumeralGeneratorImpl implements RomanNumeralGenerator {
     public String generate(int number) {
-        return I;
+        String roman = "";
+
+        for (int i = number; i > 0; i--) {
+            roman += "I";
+        }
+
+        return roman;
     }
 }

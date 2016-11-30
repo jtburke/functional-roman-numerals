@@ -2,7 +2,6 @@ package com.github.jtburke.romannumerals;
 
 import org.junit.Test;
 
-import static com.github.jtburke.romannumerals.RomanNumerals.I;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class RomanNumeralGeneratorImplTest {
@@ -12,11 +11,11 @@ public class RomanNumeralGeneratorImplTest {
 
     @Test
     public void shouldGenerate_I_from_1() {
-        assertThat(generate(1)).isEqualTo(I);
+        assertThat(generate(1)).isEqualTo("I");
     }
 
     @Test
-    public void shouldGenerate_V_from_5() {
-        assertThat(generate(1)).isEqualTo(I);
+    public void shouldGenerate_II_from_2() {
+        assertThat(generate(2)).isEqualTo("II");
     }
 }

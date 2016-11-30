@@ -22,63 +22,58 @@ public class FunctionalRomanNumeralGeneratorTest {
         return new FunctionalRomanNumeralGenerator(Arrays.asList(rules)).generate(number);
     }
 
+    public void test(int decimal, String roman, BiNumeral... partialRules) {
+        assertThat(generate(decimal, partialRules)).isEqualTo(roman);
+        assertThat(generate(decimal, COUNT_ALL)).isEqualTo(roman);
+    }
+
     @Test
     public void I_from_1() {
-        assertThat(generate(1, COUNT_ONE)).isEqualTo("I");
-        assertThat(generate(1, COUNT_ALL)).isEqualTo("I");
+        test(1, "I", COUNT_ONE);
     }
 
     @Test
     public void II_from_2() {
-        assertThat(generate(2, COUNT_ONE)).isEqualTo("II");
-        assertThat(generate(2, COUNT_ALL)).isEqualTo("II");
+        test(2, "II", COUNT_ONE);
     }
 
     @Test
     public void III_from_3() {
-        assertThat(generate(3, COUNT_ONE)).isEqualTo("III");
-        assertThat(generate(3, COUNT_ALL)).isEqualTo("III");
+        test(3, "III", COUNT_ONE);
     }
 
     @Test
     public void IV_from_4() {
-        assertThat(generate(4, COUNT_FOUR, COUNT_ONE)).isEqualTo("IV");
-        assertThat(generate(4, COUNT_ALL)).isEqualTo("IV");
+        test(4, "IV", COUNT_FOUR, COUNT_ONE);
     }
 
     @Test
     public void V_from_5() {
-        assertThat(generate(5, COUNT_FIVE, COUNT_FOUR, COUNT_ONE)).isEqualTo("V");
-        assertThat(generate(5, COUNT_ALL)).isEqualTo("V");
+        test(5, "V", COUNT_FIVE, COUNT_FOUR, COUNT_ONE);
     }
 
     @Test
     public void VI_from_6() {
-        assertThat(generate(6, COUNT_FIVE, COUNT_FOUR, COUNT_ONE)).isEqualTo("VI");
-        assertThat(generate(6, COUNT_ALL)).isEqualTo("VI");
+        test(6, "VI", COUNT_FIVE, COUNT_FOUR, COUNT_ONE);
     }
 
     @Test
     public void VII_from_7() {
-        assertThat(generate(7, COUNT_FIVE, COUNT_FOUR, COUNT_ONE)).isEqualTo("VII");
-        assertThat(generate(7, COUNT_ALL)).isEqualTo("VII");
+        test(7, "VII", COUNT_FIVE, COUNT_FOUR, COUNT_ONE);
     }
 
     @Test
     public void VIII_from_8() {
-        assertThat(generate(8, COUNT_FIVE, COUNT_FOUR, COUNT_ONE)).isEqualTo("VIII");
-        assertThat(generate(8, COUNT_ALL)).isEqualTo("VIII");
+        test(8, "VIII", COUNT_FIVE, COUNT_FOUR, COUNT_ONE);
     }
 
     @Test
     public void IX_from_9() {
-        assertThat(generate(9, COUNT_NINE, COUNT_FIVE, COUNT_FOUR, COUNT_ONE)).isEqualTo("IX");
-        assertThat(generate(9, COUNT_ALL)).isEqualTo("IX");
+        test(9, "IX", COUNT_NINE, COUNT_FIVE, COUNT_FOUR, COUNT_ONE);
     }
 
     @Test
     public void X_from_10() {
-        assertThat(generate(10, COUNT_TEN, COUNT_FIVE, COUNT_FOUR, COUNT_ONE)).isEqualTo("X");
-        assertThat(generate(10, COUNT_ALL)).isEqualTo("X");
+        test(10, "X", COUNT_TEN, COUNT_FIVE, COUNT_FOUR, COUNT_ONE);
     }
 }

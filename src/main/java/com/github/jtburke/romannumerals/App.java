@@ -1,11 +1,13 @@
 package com.github.jtburke.romannumerals;
 
+import com.github.jtburke.romannumerals.functional.FunctionalRomanNumeralGeneratorFactory;
+
 import java.util.Scanner;
 
-import static com.github.jtburke.romannumerals.FunctionalRomanNumeralGeneratorFactory.COUNT_ALL;
+import static com.github.jtburke.romannumerals.functional.FunctionalRomanNumeralGeneratorFactory.COUNT_ALL;
 
-public class App {
-    private static final String HORIZONTAL_RULE = "============================================================";
+class App {
+    private static final String HORIZONTAL_RULE = "===============================================================";
     private static final RomanNumeralGenerator romanNumeralGenerator = FunctionalRomanNumeralGeneratorFactory.create(COUNT_ALL);
 
     public static void main(String[] args) throws Exception {

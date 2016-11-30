@@ -1,33 +1,36 @@
 package com.github.jtburke.romannumerals;
 
+import com.github.jtburke.romannumerals.functional.FunctionalRomanNumeralGenerator;
+import com.github.jtburke.romannumerals.functional.FunctionalRomanNumeralRule;
 import org.junit.Test;
 
 import java.util.Arrays;
+import java.util.List;
 
-import static com.github.jtburke.romannumerals.FunctionalRomanNumeralGeneratorFactory.COUNT_ALL;
-import static com.github.jtburke.romannumerals.FunctionalRomanNumeralGeneratorFactory.COUNT_FIFTY;
-import static com.github.jtburke.romannumerals.FunctionalRomanNumeralGeneratorFactory.COUNT_FIVE;
-import static com.github.jtburke.romannumerals.FunctionalRomanNumeralGeneratorFactory.COUNT_FIVE_HUNDRED;
-import static com.github.jtburke.romannumerals.FunctionalRomanNumeralGeneratorFactory.COUNT_FORTY;
-import static com.github.jtburke.romannumerals.FunctionalRomanNumeralGeneratorFactory.COUNT_FOUR;
-import static com.github.jtburke.romannumerals.FunctionalRomanNumeralGeneratorFactory.COUNT_FOUR_HUNDRED;
-import static com.github.jtburke.romannumerals.FunctionalRomanNumeralGeneratorFactory.COUNT_NINE;
-import static com.github.jtburke.romannumerals.FunctionalRomanNumeralGeneratorFactory.COUNT_NINETY;
-import static com.github.jtburke.romannumerals.FunctionalRomanNumeralGeneratorFactory.COUNT_NINE_HUNDRED;
-import static com.github.jtburke.romannumerals.FunctionalRomanNumeralGeneratorFactory.COUNT_ONE;
-import static com.github.jtburke.romannumerals.FunctionalRomanNumeralGeneratorFactory.COUNT_ONE_HUNDRED;
-import static com.github.jtburke.romannumerals.FunctionalRomanNumeralGeneratorFactory.COUNT_ONE_THOUSAND;
-import static com.github.jtburke.romannumerals.FunctionalRomanNumeralGeneratorFactory.COUNT_TEN;
+import static com.github.jtburke.romannumerals.functional.FunctionalRomanNumeralGeneratorFactory.COUNT_ALL;
+import static com.github.jtburke.romannumerals.functional.FunctionalRomanNumeralGeneratorFactory.COUNT_FIFTY;
+import static com.github.jtburke.romannumerals.functional.FunctionalRomanNumeralGeneratorFactory.COUNT_FIVE;
+import static com.github.jtburke.romannumerals.functional.FunctionalRomanNumeralGeneratorFactory.COUNT_FIVE_HUNDRED;
+import static com.github.jtburke.romannumerals.functional.FunctionalRomanNumeralGeneratorFactory.COUNT_FORTY;
+import static com.github.jtburke.romannumerals.functional.FunctionalRomanNumeralGeneratorFactory.COUNT_FOUR;
+import static com.github.jtburke.romannumerals.functional.FunctionalRomanNumeralGeneratorFactory.COUNT_FOUR_HUNDRED;
+import static com.github.jtburke.romannumerals.functional.FunctionalRomanNumeralGeneratorFactory.COUNT_NINE;
+import static com.github.jtburke.romannumerals.functional.FunctionalRomanNumeralGeneratorFactory.COUNT_NINETY;
+import static com.github.jtburke.romannumerals.functional.FunctionalRomanNumeralGeneratorFactory.COUNT_NINE_HUNDRED;
+import static com.github.jtburke.romannumerals.functional.FunctionalRomanNumeralGeneratorFactory.COUNT_ONE;
+import static com.github.jtburke.romannumerals.functional.FunctionalRomanNumeralGeneratorFactory.COUNT_ONE_HUNDRED;
+import static com.github.jtburke.romannumerals.functional.FunctionalRomanNumeralGeneratorFactory.COUNT_ONE_THOUSAND;
+import static com.github.jtburke.romannumerals.functional.FunctionalRomanNumeralGeneratorFactory.COUNT_TEN;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class FunctionalRomanNumeralGeneratorTest {
 
-    private String generate(int number, BiNumeral... rules) {
-        return new FunctionalRomanNumeralGenerator(Arrays.asList(rules)).generate(number);
+    private String generate(int number, List<FunctionalRomanNumeralRule> rules) {
+        return new FunctionalRomanNumeralGenerator(rules).generate(number);
     }
 
-    public void test(int decimal, String roman, BiNumeral... partialRules) {
-        assertThat(generate(decimal, partialRules)).isEqualTo(roman);
+    private void test(int decimal, String roman, FunctionalRomanNumeralRule... partialRules) {
+        assertThat(generate(decimal, Arrays.asList(partialRules))).isEqualTo(roman);
         assertThat(generate(decimal, COUNT_ALL)).isEqualTo(roman);
     }
 

@@ -18,9 +18,13 @@ public class FunctionalRomanNumeralGeneratorTest {
     private static final BiNumeral COUNT_NINETY = new BiNumeral("XC", 90);
     private static final BiNumeral COUNT_ONE_HUNDRED = new BiNumeral("C", 100);
     private static final BiNumeral COUNT_FOUR_HUNDRED = new BiNumeral("CD", 400);
+    private static final BiNumeral COUNT_FIVE_HUNDRED = new BiNumeral("D", 500);
+    private static final BiNumeral COUNT_NINE_HUNDRED = new BiNumeral("CM", 900);
+    private static final BiNumeral COUNT_ONE_THOUSAND = new BiNumeral("M", 1000);
 
     private static final BiNumeral[] COUNT_ALL = new BiNumeral[] {
-        COUNT_FOUR_HUNDRED, COUNT_ONE_HUNDRED, COUNT_NINETY, COUNT_FIFTY, COUNT_FORTY,
+        COUNT_ONE_THOUSAND, COUNT_NINE_HUNDRED, COUNT_FIVE_HUNDRED, COUNT_FOUR_HUNDRED,
+        COUNT_ONE_HUNDRED, COUNT_NINETY, COUNT_FIFTY, COUNT_FORTY,
         COUNT_TEN, COUNT_NINE, COUNT_FIVE, COUNT_FOUR, COUNT_ONE
     };
 
@@ -156,5 +160,25 @@ public class FunctionalRomanNumeralGeneratorTest {
     @Test
     public void CD_from_400() {
         test(400, "CD", COUNT_FOUR_HUNDRED, COUNT_ONE_HUNDRED, COUNT_NINETY, COUNT_FIFTY, COUNT_FORTY, COUNT_TEN, COUNT_NINE, COUNT_FIVE, COUNT_FOUR, COUNT_ONE);
+    }
+
+    @Test
+    public void D_from_500() {
+        test(500, "D", COUNT_FIVE_HUNDRED, COUNT_FOUR_HUNDRED, COUNT_ONE_HUNDRED, COUNT_NINETY, COUNT_FIFTY, COUNT_FORTY, COUNT_TEN, COUNT_NINE, COUNT_FIVE, COUNT_FOUR, COUNT_ONE);
+    }
+
+    @Test
+    public void CM_from_900() {
+        test(900, "CM", COUNT_NINE_HUNDRED, COUNT_FIVE_HUNDRED, COUNT_FOUR_HUNDRED, COUNT_ONE_HUNDRED, COUNT_NINETY, COUNT_FIFTY, COUNT_FORTY, COUNT_TEN, COUNT_NINE, COUNT_FIVE, COUNT_FOUR, COUNT_ONE);
+    }
+
+    @Test
+    public void M_from_1000() {
+        test(1000, "M", COUNT_ONE_THOUSAND, COUNT_NINE_HUNDRED, COUNT_FIVE_HUNDRED, COUNT_FOUR_HUNDRED, COUNT_ONE_HUNDRED, COUNT_NINETY, COUNT_FIFTY, COUNT_FORTY, COUNT_TEN, COUNT_NINE, COUNT_FIVE, COUNT_FOUR, COUNT_ONE);
+    }
+
+    @Test
+    public void MMMCMXCIX_from_3999() {
+        test(3999, "MMMCMXCIX", COUNT_ONE_THOUSAND, COUNT_NINE_HUNDRED, COUNT_FIVE_HUNDRED, COUNT_FOUR_HUNDRED, COUNT_ONE_HUNDRED, COUNT_NINETY, COUNT_FIFTY, COUNT_FORTY, COUNT_TEN, COUNT_NINE, COUNT_FIVE, COUNT_FOUR, COUNT_ONE);
     }
 }
